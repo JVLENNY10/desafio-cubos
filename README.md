@@ -1,6 +1,6 @@
 # desafio-cubos
 
-Desafio técnico para criar uma API FINANCEIRA
+Desafio para criar uma API FINANCEIRA
 
 Para executar o projeto é simples:
 
