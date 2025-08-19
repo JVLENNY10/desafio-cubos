@@ -9,5 +9,8 @@ Para executar o projeto é simples:
   - As variáveis EMAIL e PASSWORD devem ser para acessar essa API
   - As demais variáveis são para se conectar no PostgreSQL
 - Execute npm install na sua máquina
+- Execute npx tsc para gerar o build do TS
 - Execute o comando para gerar as migrations: npx sequelize db:migrate
 - Execute npm run dev
+
+Obs: Se quiser desfazer as migrations só executar: npx sequelize db:migrate:undo:all
