@@ -58,11 +58,20 @@ class PeopleMiddlewares {
         return res.status(400).json(result);
       } else if (result.data.status !== 1) {
         return res.status(401).json({ error: `Documento ${document} não verificado.` })
-      } else {
-        const documentExists = await this.peopleServices.checkDocumentExists(document);
-        if (documentExists) res.status(401).json({ error: `Documento ${document} já existe na base` });
       }
 
+      next();
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Erro interno ao validar o corpo da requisição.' });
+    }
+  }
+
+  documentValidate2 = async (req: Request, res: Response, next: NextFunction): Promise<Response | undefined> => {
+    try {
+      const { document } = req.body;
+      const documentExists = await this.peopleServices.checkDocumentExists(document);
+      if (documentExists) res.status(401).json({ error: `Documento ${document} já existe na base` });
       next();
     } catch (error) {
       console.error(error);

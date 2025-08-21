@@ -27,7 +27,7 @@ const { createAccount, getAccounts } = accountsController;
 const { checkCardBody, checkPhysicalCardExists } = cardsMiddlewares;
 const { createCard, getCardsByAccountId, getCardsByPerson } = cardsController;
 const { checkAccountBody, checkAccountExists, checkAccountExistsById } = accountsMiddlewares;
-const { checkCreatePersonBody, checkLoginPersonBody, documentValidate } = peopleMiddlewares;
+const { checkCreatePersonBody, checkLoginPersonBody, documentValidate, documentValidate2 } = peopleMiddlewares;
 const { checkInternalTransaction, checkNegativeBalance, checkNegativeBalanceToRevert, checkTransactionById, checkTransactionValue } = transactionsMiddlewares;
 const { createIternalTransaction, createTransaction, getTransactionsBalanceByAccountId, getTransactionsByAccountId, revertTransation } = transactionsController;
 
@@ -52,7 +52,7 @@ const { createIternalTransaction, createTransaction, getTransactionsBalanceByAcc
  *       200:
  *         description: OK
  */
-routes.post('/people', checkCreatePersonBody, documentValidate,  createPerson);
+routes.post('/people', checkCreatePersonBody, documentValidate, documentValidate2,  createPerson);
 
 /**
  * @openapi
